@@ -12,9 +12,16 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Text(
-          'Hello Dart Programming',
-          style: TextStyle(fontSize: 16.0),
+        child: Column(
+          children: <Widget>[
+            FlatButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/choose_location');
+              },
+              icon: Icon(Icons.edit_location_rounded),
+              label: Text('Hello Dart Location'),
+            )
+          ],
         ),
       ),
     );
