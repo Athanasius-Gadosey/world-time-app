@@ -19,7 +19,7 @@ class _HomepageState extends State<Homepage> {
                 Navigator.pushNamed(context, '/choose_location');
               },
               icon: Icon(Icons.edit_location_rounded),
-              label: Text('Hello Dart Location'),
+              label: Text('Edit Location'),
             )
           ],
         ),
