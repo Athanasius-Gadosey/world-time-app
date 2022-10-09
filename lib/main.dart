@@ -7,7 +7,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     //MAPS & ROUTING
-    initialRoute: '/home',
+    initialRoute: '/',
     routes: {
       '/': (context) => LoadingScreen(),
       '/home': (context) => Homepage(),
