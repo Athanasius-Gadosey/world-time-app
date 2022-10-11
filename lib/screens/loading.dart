@@ -10,18 +10,29 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  void getData() async {
+  void getTime() async {
     Response response =
-        await get('https://jsonplaceholder.typicode.com/todos/1');
+        await get('http://worldtimeapi.org/api/timezone/Asia/Korea');
     Map data = jsonDecode(response.body);
-    print(data);
+    // print(data);
+
+    //  get properties from the data
+    String datetime = data['datetime'];
+    String offset = data['utc_offset'];
+    // print(datetime);
+    // print(offset);
+
+    //  This is DateTime object created
+    DateTime now = DateTime.parse(datetime);
+    now = now.add(Duration(hours: int.parse(offset)));
+    print(now);
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getData();
+    getTime();
   }
 
   @override
