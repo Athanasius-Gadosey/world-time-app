@@ -8,8 +8,12 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  Map data = {};
   @override
   Widget build(BuildContext context) {
+    ModalRoute.of(context)
+        ?.settings
+        .arguments; //the arguments represent what we at the loading page
     return Scaffold(
       body: SafeArea(
         child: Column(

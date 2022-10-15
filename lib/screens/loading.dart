@@ -9,15 +9,14 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  String time = 'loading';
-
   void setupWorldTime() async {
     worldTime instance =
         worldTime(location: 'Accra', flag: 'germany.png', url: 'Africa/Accra');
     await instance.getTime();
-    print(instance.time);
-    setState(() {
-      time = instance.time;
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
     });
   }
 
@@ -33,7 +32,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(50.0),
-        child: Text('Loading Page is $time'),
+        child: Text('Loading Page'),
       ),
     );
   }
