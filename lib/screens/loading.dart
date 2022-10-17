@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:worlde_time/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   void setupWorldTime() async {
     worldTime instance =
-        worldTime(location: 'Accra', flag: 'germany.png', url: 'Africa/Accra');
+        worldTime(location: 'Accra', flag: 'africa.png', url: 'Africa/Accra');
     await instance.getTime();
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
@@ -30,9 +31,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(50.0),
-        child: Text('Loading Page'),
+      backgroundColor: Colors.blueAccent[600],
+      body: SpinKitSpinningLines(
+        color: Colors.white70,
+        size: 70,
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:worlde_time/screens/choose_location.dart';
 import 'package:worlde_time/screens/loading.dart';
-import 'screens/home.dart';
+import 'package:worlde_time/screens/home.dart';
 
 void main() {
   runApp(MaterialApp(

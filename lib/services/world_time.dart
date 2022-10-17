@@ -1,9 +1,10 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class worldTime {
   String location; //this shows the location name of the UI
-  late String time; //this signifies the time in the loaction
+  late String time; //this signifies the time in the location
   String flag; //url to an asset flag icon
   String url; //this shows the location url of an api endpoint
 
@@ -26,7 +27,8 @@ class worldTime {
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
 
-      time = now.toString(); // this set the time property
+      // this set the time property
+      time = DateFormat.jm().format(now);
     } catch (e) {
       print('display error: $e');
       time = 'time data couldn\'t be accessed';
